@@ -1,19 +1,26 @@
-#include "game_params.h"
 #include "screens/screens.h"
-#include <raylib.h>
 
-int main(void) {
+int main(void)
+{
 
-  InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+  InitWindow(screenWidth, screenHeight, "Pong by Sami Amsaf");
   SetTargetFPS(60);
 
   GameScreen currentScreen = MAIN_MENU;
 
-  while (!WindowShouldClose()) {
-    switch (currentScreen) {
+  while (!WindowShouldClose())
+  {
+    switch (currentScreen)
+    {
     case MAIN_MENU:
+    {
       render_menu();
-      break;
+      if (IsKeyPressed(KEY_SPACE))
+      {
+        currentScreen = GAME_SCREEN;
+      }
+    }
+    break;
     case GAME_SCREEN:
       render_game();
       break;

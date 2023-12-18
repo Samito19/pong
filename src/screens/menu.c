@@ -1,11 +1,13 @@
 #include <raylib.h>
+#include "screens.h"
 
-void render_menu(void) {
+void render_menu(void)
+{
   BeginDrawing();
 
-  ClearBackground(RAYWHITE);
+  ClearBackground(BLACK);
 
-  DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+  DrawText("Press the space key to start playing...", screenWidth / 2 - 400, screenHeight / 2, 40, RAYWHITE);
 
   EndDrawing();
 }

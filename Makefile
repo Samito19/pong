@@ -4,12 +4,13 @@ CINCLUDES = -I/home/samiamsaf/libs/raylib/src
 CLIBS = -L/home/samiamsaf/libs/raylib -lraylib -lm
 
 SRC = src
-SRCS = $(wildcard $(SRC)/**/*.c)
+SUBDIRS = $(wildcard src/**/*.c)
+SRCS = $(wildcard $(SRC)/*.c $(SUBDIRS))
 
-main: $(OBJS)
-	$(CC) $(CFLAGS) $(CINCLUDES) $(CLIBS) -o pong_game
+build:
+	$(CC) $(CFLAGS) $(SRCS) $(CINCLUDES) $(CLIBS) -o pong_game
 
-run: main
+run: build
 	./pong_game
 
 clean:
